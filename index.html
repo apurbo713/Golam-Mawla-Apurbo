@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Golam Mawla Apurbo - </title>
+<style>
+    
+  :root {
+    --gold: #bfa14a;
+    --white: #fff;
+    --black: #121212;
+    --bg-light: #fff;
+    --bg-dark: #121212;
+    --text-light: #121212;
+    --text-dark: #fff;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  body.dark {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+  }
+
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: var(--bg-light);
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    z-index: 1000;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  body.dark header {
+    background: var(--bg-dark);
+    border-color: #333;
+  }
+
+  .logo {
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: var(--gold);
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.3rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul li {
+    cursor: pointer;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+  body.dark nav ul li a {
+    color: var(--text-dark);
+  }
+  nav ul li a:hover {
+    color: var(--gold);
+  }
+
+  /* Account dropdown */
+  .account {
+    position: relative;
+    cursor: pointer;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .account:hover .dropdown {
+    display: block;
+  }
+  .dropdown {
+    display: none;
+    position: absolute;
+    top: 1.8rem;
+    right: 0;
+    background: var(--bg-light);
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    min-width: 180px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    transition: background-color 0.3s;
+    z-index: 2000;
+  }
+  body.dark .dropdown {
+    background: var(--bg-dark);
+    border-color: #444;
+  }
+  .dropdown button {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 0.7rem 1rem;
+    text-align: left;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-light);
+    transition: background-color 0.2s;
+  }
+  body.dark .dropdown button {
+    color: var(--text-dark);
+  }
+  .dropdown button:hover {
+    background-color: var(--gold);
+    color: var(--white);
+  }
+
+  main {
+    margin-top: 70px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem 1rem;
+  }
+
+  /* Homepage section */
+  #home {
+    text-align: center;
+    padding: 3rem 1rem;
+    animation: popup 0.6s ease;
+  }
+
+  #home img {
+    max-width: 180px;
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+    margin: 1.5rem 0;
+    box-shadow: 0 0 15px var(--gold);
+  }
+
+  #home h1 {
+    font-size: 2.8rem;
+    margin: 0;
+    color: var(--gold);
+  }
+
+  #home p {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    color: inherit;
+  }
+
+  /* Other sections */
+  section {
+    padding: 4rem 1rem;
+    border-top: 1px solid #ddd;
+    transition: border-color 0.3s;
+  }
+  body.dark section {
+    border-color: #333;
+  }
+
+  /* Scroll smooth */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Popup animation */
+  @keyframes popup {
+    0% {
+      opacity: 0;
+      transform: scale(0.85);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Theme toggle button */
+  .theme-toggle {
+    background: var(--gold);
+    border: none;
+    color: var(--white);
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-left: 1rem;
+    transition: background-color 0.3s;
+  }
+  .theme-toggle:hover {
+    background: #a8853b;
+  }
+
+  /* Social Login Buttons */
+  .social-login {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1rem;
+  }
+  .social-login button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+    transition: background-color 0.3s;
+  }
+  .google-btn {
+    background-color: #DB4437;
+  }
+  .google-btn:hover {
+    background-color: #c33c2e;
+  }
+  .facebook-btn {
+    background-color: #4267B2;
+  }
+  .facebook-btn:hover {
+    background-color: #365899;
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"></div>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#Family Information">Family Information</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="account" tabindex="0">
+    Account ▼
+    <div class="dropdown">
+      <button class="google-btn">Login with Google</button>
+      <button class="facebook-btn">Login with Facebook</button>
+      <button>Create Account</button>
+    </div>
+  </div>
+  <button class="theme-toggle" aria-label="Toggle dark/light theme">Dark Mode</button>
+</header>
+
+<main>
+  <section id="home">
+    <h1>Golam Mawla Apurbo </h1>
+    <p>Welcome to the personal space of Golam Mawla Apurbo — a passionate creator and lifelong learner from Dhaka, Bangladesh. Here you’ll find insights into my journey, skills, and projects. Explore my world where creativity meets dedication, and let’s connect to build something amazing together.
+
+    </p>
+    <img src="https://i.postimg.cc/767hVLvd/475551883-122100274238752064-6208961375209264255-n.jpg" alt="Profile Picture" />
+  </section>
+
+  <section id="Family Information">
+    <h2>Family Information</h2>
+    <p>
+<P>
+      I come from a loving and supportive family based in [Your City, e.g., Dhaka]. We are closely bonded and value respect, honesty, and unity in every step of life.
+</P>
+<p>
+<h3>My Father:</h3> <h4> Ar Dilder Hossain</h4> <p></p>
+<p></p>occupation :  Businessman <p></p>
+He is the pillar of our family, always guiding us with wisdom and strength.
+</p>
+<h3>My Mother</h3><h4>Ar Nur Jahan</h4> <p></p>
+<p>Occupation : Housewife <p></p>
+She is the heart of our home, managing everything with care and love. Her support and affection keep the family united.
+</p>
+<h3>My Younger Brother :</h3> <p>
+  <h4>Ar Golam Hossain Pobitro</h4>
+</p>
+Education: Currently studying in Class 4 <p></p>
+He is a joyful and curious boy, full of energy.<p></p> We share a strong bond, and he is not just my brother, but also a true friend and supporter in my life.
+
+Together, we face every challenge as a team and celebrate each moment with love and care. My family is my biggest strength and the reason behind my values and motivation.
+
+</p>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hi! I am Golam Mawla Apurbo, a passionate learner and creative thinker from Dhaka, Bangladesh. I love exploring new ideas, designing cool projects, and constantly improving myself. Whether it’s technology, art, or problem-solving, I always try to give my best.
+
+        I believe in hard work, dedication, and staying curious. This website is a window to my journey — where I share my skills, interests, and the things I’m proud of.
+        <p>
+        Hobbies:
+        I enjoy graphic design, coding, reading books, and spending time with friends and family. Creativity and learning new skills keep me motivated every day.
+        </p>
+       <p> 
+        Education:
+        Currently, I am an SSC 2026 examinee from the Science group, following the NCTB syllabus.
+        </p>
+        <p>
+        Career Goals:
+        My goal is to become a skilled professional in the tech and design world, creating projects that inspire and help people.
+        </p>
+        <p>
+        Skills:
+        
+        Graphic Design (Photoshop, Illustrator)
+        
+        Web Development (HTML, CSS, JavaScript)
+        
+        Problem Solving & Critical Thinking
+        </p>
+        <p>
+        Achievements:
+        
+        Created graphics for ‘Elite Creations’ page
+        
+        Participated in school science fairs and competitions
+        
+        Consistently ranked among top students in class
+        </p>
+       <p>
+        Languages:
+        </p>
+       1. Bengali 
+        <p>
+       2. English 
+        </p>
+       <p>
+        Personal Values:
+        <p>
+        Honesty
+        </p>
+        Hard Work
+        <p>
+        Creativity
+        </p>
+        Continuous Learning
+        <p>
+        </p>
+        Fun Fact:
+        I love listening to music while working, especially lo-fi beats. It helps me focus and stay relaxed!</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Mobile : +88015 1892 92369
+        <p>
+            Mail : gmawlaapurbo@gmail.com
+        </p>
+        <p>
+    </p>
+  </section>
+</main>
+
+<script>
+  // Theme toggle
+  const toggleBtn = document.querySelector('.theme-toggle');
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    if(document.body.classList.contains('dark')){
+      toggleBtn.textContent = 'Light Mode';
+    } else {
+      toggleBtn.textContent = 'Dark Mode';
+    }
+  });
+
+  // Close dropdown when focus lost
+  const account = document.querySelector('.account');
+  account.addEventListener('blur', () => {
+    const dropdown = account.querySelector('.dropdown');
+    dropdown.style.display = 'none';
+  });
+  account.addEventListener('focus', () => {
+    const dropdown = account.querySelector('.dropdown');
+    dropdown.style.display = 'block';
+  });
+
+</script>
+<footer>
+© 2025 Apurbo. All rights reserved. 
+</footer>s
+</body>
+</html>
